@@ -1,0 +1,15 @@
+<h1>New Project</h1>
+
+<% @project.errors.full_messages.each do |msg| %>
+  <p><%= msg %></p>
+<% end %>
+
+<%= form_for :project do |f| %>
+  
+  Name: <%= f.text_field :name %><br />
+  Description: <%= f.text_field :desc %><br />
+  URL: <%= f.text_field :url %><br />
+  
+  <%= f.submit %>
+
+<% end %>

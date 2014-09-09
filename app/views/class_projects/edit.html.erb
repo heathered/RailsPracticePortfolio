@@ -1,0 +1,16 @@
+
+<% @project.errors.full_messages.each do |msg| %>
+  <p><%= msg %></p>
+<% end %>
+
+<%= form_for :project do |f| %>
+  
+  Name: <%= f.text_field :name, value: @project.name %><br />
+  Description: <%= f.text_field :desc, value: @project.desc %><br />
+  URL: <%= f.text_field :url, value: @project.url %><br />
+  
+  <%= f.submit %>
+
+<% end %>
+
+<p><%= link_to("Delete", delete_project_path, :method => :delete) %></p>
