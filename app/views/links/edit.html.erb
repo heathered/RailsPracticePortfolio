@@ -1,0 +1,16 @@
+
+<% @link.errors.full_messages.each do |msg| %>
+  <p><%= msg %></p>
+<% end %>
+
+<%= form_for @link do |f| %>
+  
+  Name: <%= f.text_field :name %><br />
+  URL: <%= f.text_field :url %><br />
+  
+  <%= f.submit %>
+
+<% end %>
+
+<p><%= link_to("Delete", delete_link_path, :method => :delete) %></p>
+<p><%= link_to("Back", link_path(@link.id)) %></p>

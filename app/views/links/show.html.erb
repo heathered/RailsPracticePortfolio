@@ -1,0 +1,8 @@
+<h1><%= @link.name %></h1>
+
+
+<p>URL: <%= link_to(@link.url, @link.url) %></p>
+
+
+<p><%= link_to("Update", edit_link_path(@link.id)) %></p>
+<p><%= link_to("Home", links_path) %></p>

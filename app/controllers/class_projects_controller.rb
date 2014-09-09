@@ -10,10 +10,11 @@ class ClassProjectsController < ApplicationController
   
   def create
     # raise "#{params[:project]}"
+    params[:project][:tag_ids] ||= []
     @project = ClassProject.new(params[:project])
     
     if @project.save
-      redirect_to projects_path
+      redirect_to class_projects_path
     else
       render 'new'
     end
@@ -28,10 +29,11 @@ class ClassProjectsController < ApplicationController
   end
   
   def update
+    params[:project][:tag_ids] ||= []
     @project = ClassProject.find(params[:id])
     
     if @project.update_attributes(params[:project])
-      redirect_to project_path(@project.id)
+      redirect_to class_project_path(@project.id)
     else
       render 'edit'
     end
@@ -41,7 +43,7 @@ class ClassProjectsController < ApplicationController
     @project = ClassProject.find(params[:id])
     @project.destroy
     
-    redirect_to projects_path
+    redirect_to class_projects_path
   end
   
 end

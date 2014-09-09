@@ -1,0 +1,17 @@
+
+<% @contact.errors.full_messages.each do |msg| %>
+  <p><%= msg %></p>
+<% end %>
+
+<%= form_for @contact do |f| %>
+  
+  Name: <%= f.text_field :name %><br />
+  Email: <%= f.text_field :email %><br />
+  Message: <%= f.text_field :message %><br />
+  
+  <%= f.submit %>
+
+<% end %>
+
+<p><%= link_to("Delete", delete_contact_path, :method => :delete) %></p>
+<p><%= link_to("Back", contact_path(@contact.id)) %></p>

@@ -4,12 +4,21 @@
   <p><%= msg %></p>
 <% end %>
 
-<%= form_for :project do |f| %>
+<%= form_for @project do |f| %>
   
   Name: <%= f.text_field :name %><br />
   Description: <%= f.text_field :desc %><br />
   URL: <%= f.text_field :url %><br />
   
+  <% for tag in Tag.find(:all) %>
+  <div>
+    <%= check_box_tag "project[tag_ids][]", tag.id, @project.tags.include?(tag) %>
+    <%= tag.name %>
+  </div>
+  <% end %>
+  
   <%= f.submit %>
 
 <% end %>
+
+<p><%= link_to("Back", class_projects_path) %></p>

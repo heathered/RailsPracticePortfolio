@@ -1,0 +1,15 @@
+
+<% @tag.errors.full_messages.each do |msg| %>
+  <p><%= msg %></p>
+<% end %>
+
+<%= form_for @tag do |f| %>
+  
+  Name: <%= f.text_field :name %><br />
+  
+  <%= f.submit %>
+
+<% end %>
+
+<p><%= link_to("Delete", delete_tag_path, :method => :delete) %></p>
+<p><%= link_to("Back", tag_path(@tag.id)) %></p>

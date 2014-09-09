@@ -1,0 +1,8 @@
+<h1><%= @article.title %></h1>
+
+<p>Body: <%= @article.body %></p>
+<p><%= @article.draft ? "Draft" : "Published" %></p>
+
+
+<p><%= link_to("Update", edit_article_path(@article.id)) %></p>
+<p><%= link_to("Home", articles_path) %></p>

@@ -1,0 +1,13 @@
+<h1><%= @tag.name %></h1>
+
+
+<p>Tags:</p>
+<ul>
+<% @tag.class_projects.each do |t| %>
+  <li><%= link_to(t.name, class_project_path(t.id)) %></li>
+<% end %>
+</ul>
+
+
+<p><%= link_to("Update", edit_tag_path(@tag.id)) %></p>
+<p><%= link_to("Home", tags_path) %></p>

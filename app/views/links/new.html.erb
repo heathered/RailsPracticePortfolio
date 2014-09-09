@@ -1,0 +1,16 @@
+<h1>New Link</h1>
+
+<% @link.errors.full_messages.each do |msg| %>
+  <p><%= msg %></p>
+<% end %>
+
+<%= form_for @link do |f| %>
+  
+  Name: <%= f.text_field :name %><br />
+  URL: <%= f.text_field :url %><br />
+  
+  <%= f.submit %>
+
+<% end %>
+
+<p><%= link_to("Back", links_path) %></p>

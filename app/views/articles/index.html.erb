@@ -1,0 +1,19 @@
+<h1>Articles Index</h1>
+
+<%= link_to("Add Article", new_article_path) %>
+
+<p>Drafts:</p>
+<ul>
+<% @drafts.each do |article| %>
+  <li><%= link_to("#{article.id}: #{article.title}", article_path(article.id)) %></li>
+<% end %>
+</ul>
+
+<p>Published</p>
+<ul>
+<% @published.each do |article| %>
+  <li><%= link_to("#{article.id}: #{article.title}", article_path(article.id)) %></li>
+<% end %>
+</ul>
+
+<p><%= link_to("Home", home_path) %></p>
