@@ -1,5 +1,5 @@
 Portfolio::Application.routes.draw do
-  get "home" => 'pages#welcome', as: 'home'
+  root :to => 'pages#welcome'
   
   get "projects" => 'class_projects#index', as: 'class_projects'
   get "projects/new" => 'class_projects#new', as: 'new_class_project' 

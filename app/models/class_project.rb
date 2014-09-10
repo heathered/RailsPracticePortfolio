@@ -5,4 +5,6 @@ class ClassProject < ActiveRecord::Base
   validates :name, presence: true
   validates :desc, presence: true
   validates :url, presence: true
+  
+  scope :featured, where(featured: true)
 end
