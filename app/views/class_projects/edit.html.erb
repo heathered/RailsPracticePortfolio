@@ -9,9 +9,11 @@
   Description: <%= f.text_field :desc %><br />
   URL: <%= f.text_field :url %><br />
   
+  Featured: <%= f.select(:featured, [['Yes', 'true'], ['No', 'false']]) %><br />
+  
   <% for tag in Tag.find(:all) %>
   <div>
-    <%= check_box_tag "project[tag_ids][]", tag.id, @project.tags.include?(tag) %>
+    <%= check_box_tag "class_project[tag_ids][]", tag.id, @project.tags.include?(tag) %>
     <%= tag.name %>
   </div>
   <% end %>

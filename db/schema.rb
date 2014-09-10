@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140909164718) do
+ActiveRecord::Schema.define(:version => 20140910011253) do
 
   create_table "articles", :force => true do |t|
     t.text     "title"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(:version => 20140909164718) do
     t.text     "url"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.boolean  "featured"
   end
 
   create_table "class_projects_tags", :id => false, :force => true do |t|

@@ -5,14 +5,26 @@
 <p>Drafts:</p>
 <ul>
 <% @drafts.each do |article| %>
-  <li><%= link_to("#{article.id}: #{article.title}", article_path(article.id)) %></li>
+  <li>
+    <%= link_to("#{article.id}: #{article.title}", article_path(article.id)) %>
+    <ul>
+      <li><%= article.excerpt %></li>
+      <li><%= article.relative_length %></li>
+    </ul>
+  </li>
 <% end %>
 </ul>
 
 <p>Published</p>
 <ul>
 <% @published.each do |article| %>
-  <li><%= link_to("#{article.id}: #{article.title}", article_path(article.id)) %></li>
+  <li>
+    <%= link_to("#{article.id}: #{article.title}", article_path(article.id)) %>
+    <ul>
+      <li><%= article.excerpt %></li>
+      <li><%= article.relative_length %></li>
+    </ul>
+  </li>
 <% end %>
 </ul>
 

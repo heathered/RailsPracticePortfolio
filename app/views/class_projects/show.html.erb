@@ -5,6 +5,8 @@
 
 <p>URL: <%= link_to(@project.url, @project.url) %></p>
 
+<p>Featured: <%= @project.featured %></p>
+
 <p>Tags:</p>
 <ul>
 <% @project.tags.each do |t| %>

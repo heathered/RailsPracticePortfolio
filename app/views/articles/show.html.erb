@@ -4,5 +4,5 @@
 <p><%= @article.draft ? "Draft" : "Published" %></p>
 
 
-<p><%= link_to("Update", edit_article_path(@article.id)) %></p>
+<p><%= link_to("Edit", edit_article_path(@article.id)) %></p>
 <p><%= link_to("Home", articles_path) %></p>
