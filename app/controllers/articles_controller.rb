@@ -22,6 +22,8 @@ class ArticlesController < ApplicationController
   end
   
   def show
+    session[:id] = params[:id]
+    
     @article = Article.find(params[:id])
     @like = Like.new
     

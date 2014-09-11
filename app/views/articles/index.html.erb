@@ -8,8 +8,8 @@
   <li>
     <%= link_to("#{article.id}: #{article.title}", article_path(article.id)) %>
     <ul>
-      <li><%= article.excerpt %></li>
-      <li><%= article.relative_length %></li>
+      <li>Excerpt: <%= article.excerpt %></li>
+      <li>Length: <%= article.relative_length %></li>
     </ul>
   </li>
 <% end %>
@@ -21,8 +21,8 @@
   <li>
     <%= link_to("#{article.id}: #{article.title}", article_path(article.id)) %>
     <ul>
-      <li><%= article.excerpt %></li>
-      <li><%= article.relative_length %></li>
+      <li>Excerpt: <%= article.excerpt %></li>
+      <li>Length: <%= article.relative_length %></li>
     </ul>
   </li>
 <% end %>

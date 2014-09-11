@@ -9,7 +9,7 @@ class LikesController < ApplicationController
     @like = Like.new(params[:like])
     
     if @like.save
-      redirect_to article_path(params[:like][:article_id])
+      redirect_to article_path(session[:id])
     else
       redirect_to root_path
     end
