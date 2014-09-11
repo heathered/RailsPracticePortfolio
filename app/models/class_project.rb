@@ -6,5 +6,5 @@ class ClassProject < ActiveRecord::Base
   validates :desc, presence: true
   validates :url, presence: true
   
-  scope :featured, where(featured: true)
+  scope :featured, -> {where(featured: true)}
 end

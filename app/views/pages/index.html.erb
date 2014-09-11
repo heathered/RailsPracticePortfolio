@@ -1,0 +1,14 @@
+<h1>Main Page</h1>
+
+
+<h3>Published Articles</h3>
+<% @articles.each do |a| %>
+  <p><%= link_to(a.title, article_path(a.id)) %></p>
+<% end %>
+
+
+
+<h3>Featured Projects</h3>
+<% @projects.each do |a| %>
+  <p><%= link_to(a.name, class_project_path(a.id)) %></p>
+<% end %>

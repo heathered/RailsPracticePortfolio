@@ -1,8 +1,8 @@
 class Article < ActiveRecord::Base
   attr_accessible :body, :draft, :title
   
-  scope :draft, where(draft: true)
-  scope :long, where(body.length > 300)
+  scope :draft, -> { where(draft: true) }
+  scope :published, -> { where(draft: false) }
   
   def excerpt
     self.body.slice(0,30)

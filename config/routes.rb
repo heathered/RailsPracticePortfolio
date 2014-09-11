@@ -1,5 +1,6 @@
 Portfolio::Application.routes.draw do
-  root :to => 'pages#welcome'
+  root :to => 'pages#index'
+  get "home" => 'pages#welcome'
   
   get "projects" => 'class_projects#index', as: 'class_projects'
   get "projects/new" => 'class_projects#new', as: 'new_class_project' 
@@ -40,5 +41,13 @@ Portfolio::Application.routes.draw do
   get 'articles/:id/edit' => 'articles#edit', as: 'edit_article'
   put 'articles/:id' => 'articles#update'
   delete 'articles/:id/delete' => 'articles#destroy', as: 'delete_article'
+
+  get "likes" => 'likes#index', as: 'likes'
+  get 'likes/new' => 'likes#new', as: 'new_like'
+  post 'likes' => 'likes#create'
+  get 'likes/:id' => 'likes#show', as: 'like'
+  get 'likes/:id/edit' => 'likes#edit', as: 'edit_like'
+  put 'likes/:id' => 'likes#update'
+  delete 'likes/:id/delete' => 'likes#destroy', as: 'delete_like'
   
 end
