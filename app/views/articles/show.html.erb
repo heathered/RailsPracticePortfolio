@@ -9,7 +9,7 @@
 
 <% if @ip %>
   <%= form_for @like do |f| %>
-    <%= f.hidden_field :article_id, value: session[:id] %>
+    <%= f.hidden_field :article_id, value: @article.id %>
     <%= f.hidden_field :ip_address, value: request.remote_ip %> 
     <%= f.submit value: "Like" %> 
   <% end %>

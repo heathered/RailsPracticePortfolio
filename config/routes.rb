@@ -50,6 +50,10 @@ Portfolio::Application.routes.draw do
   put 'likes/:id' => 'likes#update'
   delete 'likes/:id/delete' => 'likes#destroy', as: 'delete_like'
   
-  get 'users'
+  get "login" => 'logins#new', :as => "login"
+  post "login" => 'logins#create', :as => "create_login"
+
+  post "create_user" => 'users#create', :as => "create_user"
+  get "signup" => 'users#new', :as => "signup"
   
 end
