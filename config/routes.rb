@@ -50,4 +50,6 @@ Portfolio::Application.routes.draw do
   put 'likes/:id' => 'likes#update'
   delete 'likes/:id/delete' => 'likes#destroy', as: 'delete_like'
   
+  get 'users'
+  
 end

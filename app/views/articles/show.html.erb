@@ -1,5 +1,7 @@
 <h1><%= @article.title %></h1>
 
+<%= session[:id] %>
+
 <p>Body: <%= @article.body %></p>
 <p><%= @article.draft ? "Draft" : "Published" %></p>
 
