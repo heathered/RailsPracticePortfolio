@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+  skip_before_filter :authorize, :only => [:index, :show]
 
   def index
     @articles = Article.all
@@ -24,19 +25,17 @@ class ArticlesController < ApplicationController
   def show
     
     @article = Article.find(params[:id])
+    session[:id] = params[:id]
+    
     @like = Like.new
-    
     @all_likes = Like.where({article_id: params[:id]})
-    
     @ip = true
-
     @all_likes.each do |a|
       if a.ip_address == request.remote_ip
         @ip = false
       end
     end
 
-    
   end
   
   def edit

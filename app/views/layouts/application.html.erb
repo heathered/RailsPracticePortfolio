@@ -2,19 +2,59 @@
 <html>
 <head>
   <title>Portfolio</title>
+  <link href='http://fonts.googleapis.com/css?family=Special+Elite' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Homemade+Apple' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
+  
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div id="container">  
   
-  <% if current_user %>
-    Logged in! <%= session %>
-  <% else %>
-    NOT logged in!
-  <% end %>
+  <!-- <p><%= session %></p> -->
 
-<%= yield %>
+  <div id="preheader">
+    <% if current_user %>
+      <%= current_user.email %> (<%= link_to "Log out!", logout_path %>)
+    <% else %>
+      <%= link_to("Log In", login_path) %>
+    <% end %>
+  </div>
 
+  <header class="cf">
+    <h1 class="cf"><a href="<%= root_path %>">Heather Praiswater</a></h1>
+  </header>
+  
+  <div id="postheader" class="cf"></div>
+  
+  <nav class="cf">
+    <ul>
+      <li><%= link_to("Articles", articles_path) %></li>
+      <li><%= link_to("Projects", class_projects_path) %></li>
+      <li><%= link_to("Contact", new_contact_path) %></li>
+    </ul>
+  </nav>
+  
+  <div id="main" class="cf">
+    
+    <% if flash[:notice] %>
+      <p id="notice"><%= flash[:notice] %></p>
+    <% end %>
+    <% if flash[:alert] %>
+      <p id="alert"><%= flash[:alert] %></p>
+    <% end %>
+  
+    <%= yield %>
+  
+  </div>
+  
+  <!-- <footer class="cf">
+    FOOTER
+  </footer> -->
+
+
+</div>
 </body>
 </html>

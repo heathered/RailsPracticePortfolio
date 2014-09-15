@@ -1,9 +1,6 @@
-<h1><%= @article.title %></h1>
+<h1><%= @article.title %> - <%= @article.draft ? "Draft" : "Published" %></h1>
 
-<%= session[:id] %>
-
-<p>Body: <%= @article.body %></p>
-<p><%= @article.draft ? "Draft" : "Published" %></p>
+<p id="abody"><%= @article.body %></p>
 
 <p>Likes: <%= @all_likes.length %></p>
 
@@ -15,5 +12,6 @@
   <% end %>
 <% end %>
 
-<p><%= link_to("Edit", edit_article_path(@article.id)) %></p>
-<p><%= link_to("Articles Home", articles_path) %></p>
+<% if current_user %>
+  <p><%= link_to("Edit", edit_article_path(@article.id)) %></p>
+<% end %>

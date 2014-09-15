@@ -1,17 +1,14 @@
-<h1>Main Page</h1>
-
-<%= link_to("Sign Up!", signup_path) %> |
-<%= link_to("Log In", login_path) %>
-
-
-<h3>Published Articles</h3>
-<% @articles.each do |a| %>
-  <p><%= link_to(a.title, article_path(a.id)) %></p>
-<% end %>
-
-
-
-<h3>Featured Projects</h3>
+<h2>Featured Project</h2>
+<ul>
 <% @projects.each do |a| %>
-  <p><%= link_to(a.name, class_project_path(a.id)) %></p>
+  <li><%= link_to(a.name, class_project_path(a.id)) %></li>
 <% end %>
+</ul>
+
+<h2>Recent Articles</h2>
+<ul>
+<% @recent.each do |a| %>
+  <li><%= link_to(a.title, article_path(a.id)) %> (<%= a.created_at.strftime('%b %d, %Y') %>)</li>
+<% end %>
+</ul>
+

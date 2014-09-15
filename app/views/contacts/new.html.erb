@@ -1,4 +1,4 @@
-<h1>New Contact</h1>
+<h1>Contact Me!</h1>
 
 <% @contact.errors.full_messages.each do |msg| %>
   <p><%= msg %></p>
@@ -6,11 +6,14 @@
 
 <%= form_for @contact do |f| %>
   
-  Name: <%= f.text_field :name %><br />
-  Email: <%= f.text_field :email %><br />
-  Message: <%= f.text_field :message %><br />
+  <%= f.label :name %>
+  <%= f.text_field :name %><br />
+  <%= f.label :email %>
+  <%= f.text_field :email %><br />
+  <%= f.label :message %>
+  <%= f.text_field :message %><br />
   
-  <%= f.submit %>
+  <%= f.submit value: "Send" %>
 
 <% end %>
 
